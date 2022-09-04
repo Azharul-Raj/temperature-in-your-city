@@ -14,8 +14,8 @@ const loadTemperature = async (city) => {
 }
 const displayTemperature = (data) => {
     const { name, main, weather } = data
-    console.log(main, weather)
-    setInnerText('temperature',main.temp)
+    setAllData('city','temperature','condition',name,main.temp,weather[0].main)
+    // console.log(weather[0].main)
 }
 
 // setting innerHTML function
@@ -23,5 +23,10 @@ const setInnerText = (setPlaceId, setData) => {
     const setPlace = document.getElementById(setPlaceId)
     setPlace.innerText = setData
 }
-// set
+// setAllData function
+const setAllData = (id1,id2,id3,data1,data2,data3) => {
+    setInnerText(id1, data1)
+    setInnerText(id2, data2)
+    setInnerText(id3, data3)
+}
 loadTemperature()
